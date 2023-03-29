@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI converter</title>
+    </head>
+        <style>
+            #wrapper{
+                height: 200px;
+                width: 450px;
+                border: 1px red;
+                margin: auto;
+                padding: 4px
+            }
+            #left{
+                width: 190px;
+                float: left;
+                border: 1px red;
+                padding: 4px;
+            }
+            #left form input{
+                margin-bottom: 4px;
+            }
+            #myText{
+                position: relative;
+                left: +500px;
+            }
+            input[type="submit"]{
+                background-color: red;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+        </style>
+
+
+<body>
+<div id="wrapper">
+    <div id ="left">
+    <form action="/BMI" method="post">   <!--En FORM er et HTML element der laser brugeren indtaste og submitte data-->
+        <label><strong>Indtast højde</strong></label>
+        <input name="height" type="text" step="0.01">  <!--Her indtastes attributen med navnet height. Herfra vil -->
+        <br>                                            <!--Spring frameworket selv mappe height til den respective attribut i calculator-->
+                                                        <!-- Ud fra de navne man har bruger.-->
+        <label><strong>Indtast vægt</strong></label>
+        <input name="weight" type="text" step="0.01">
+        <br>
+        <input type="submit" value="submit">
+    </form>
+    </div>
+</div>
+
+    <div id="myText">
+        <p>Dette er din BMI:</p>
+        <p th:text="${calculatedBMI}"></p>
+        <p th:text="${analysisOfBMI}"></p>
+    </div>
+<!-- Uddybelse af ovenstående kode-->
+<!-- th:text er et thymeLeaf attribut der sætter teksten til elementet til værdien af calculatedBMI.-->
+
+
+
+</body>
+</html>
